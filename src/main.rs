@@ -5,6 +5,7 @@ mod extern_c_ffi;
 mod loops_branching;
 mod modules_paths;
 mod move_semantics_threads;
+mod practice;
 mod trait_impl_self_dyn_where;
 
 fn main() {
