@@ -39,4 +39,7 @@ fn main() {
     println!("----------\nExercise 8\n----------");
     use crate::move_semantics_threads;
     move_semantics_threads::move_thread();
+    println!("----------\nExercise 9\n----------");
+    use crate::practice;
+    practice::vec();
 }
