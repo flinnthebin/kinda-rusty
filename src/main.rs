@@ -2,11 +2,13 @@ mod async_await;
 mod const_cast_unsafe;
 mod enum_typealias_match;
 mod extern_c_ffi;
+mod hashmaps;
 mod loops_branching;
 mod modules_paths;
 mod move_semantics_threads;
 mod practice;
 mod trait_impl_self_dyn_where;
+mod vectors;
 
 fn main() {
     println!("----------\nExercise 1\n----------");
@@ -40,6 +42,6 @@ fn main() {
     use crate::move_semantics_threads;
     move_semantics_threads::move_thread();
     println!("----------\nExercise 9\n----------");
-    use crate::practice;
-    practice::vec();
+    use crate::vectors;
+    vectors::vec_ops();
 }
