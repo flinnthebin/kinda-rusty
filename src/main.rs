@@ -7,6 +7,7 @@ mod loops_branching;
 mod modules_paths;
 mod move_semantics_threads;
 mod practice;
+mod read_stdin;
 mod trait_impl_self_dyn_where;
 mod vectors;
 
@@ -44,4 +45,7 @@ fn main() {
     println!("----------\nExercise 9\n----------");
     use crate::vectors;
     vectors::vec_ops();
+    println!("----------\nExercise 10\n----------");
+    use crate::read_stdin;
+    read_stdin::reader();
 }
