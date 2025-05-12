@@ -1,9 +1,16 @@
-use std::thread;
+macro_rules! read_stdin {
+    ($t:ty) => {{
+        use std::io::Read;
+        let mut buffer = String::new();
+        std::io::stdin().read_to_string(&mut buffer).unwrap();
+        buffer
+            .split_whitespace()
+            .map(|s| s.parse::<$t>().unwrap())
+            .collect::<Vec<$t>>()
+    }};
+}
 
-pub fn move_thread() {
-    let data = vec![1, 2, 3];
-    let handle = thread::spawn(move || {
-        println!("data = {:?}", data);
-    });
-    handle.join().unwrap();
+pub fn reader() {
+    let v: Vec<i32> = read_stdin!(i32);
+    println!("{:?}", v);
 }

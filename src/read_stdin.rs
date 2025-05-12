@@ -5,7 +5,6 @@ macro_rules! read_stdin {
         std::io::stdin().read_to_string(&mut buffer).unwrap();
         buffer
             .split_whitespace()
-            .filter(|s| !s.is_empty())
             .map(|s| s.parse::<$t>().unwrap())
             .collect::<Vec<$t>>()
     }};
