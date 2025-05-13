@@ -10,3 +10,11 @@ pub async fn asynchronous() {
     let v = fetch_value().await;
     println!("got {}", v);
 }
+
+#[cfg(test)]
+mod test {
+    fn test() {
+        use super::*;
+        asynchronous();
+    }
+}

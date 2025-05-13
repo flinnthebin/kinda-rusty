@@ -2,7 +2,7 @@ const MAX: i32 = 100; // compile-time constant
 static mut COUNT: i32 = 0; // mutable static reqs `unsafe` to read or write
 
 #[allow(static_mut_refs)] // lint attribute
-pub fn demo() {
+fn demo() {
     let x = 10; // binding
     let y = x as f64; // casting
     let flag = true;
@@ -12,5 +12,14 @@ pub fn demo() {
         // unsafe block (static mut)
         COUNT = 1;
         println!("COUNT={}", COUNT);
+    }
+}
+
+#[cfg(test)]
+mod test {
+    #[test]
+    fn test() {
+        use super::demo;
+        demo();
     }
 }

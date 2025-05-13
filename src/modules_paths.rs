@@ -18,3 +18,12 @@ use outer::inner::call_parent;
 pub fn parentcall() {
     call_parent();
 }
+
+#[cfg(test)]
+mod test {
+    #[test]
+    fn test() {
+        use super::*;
+        parentcall();
+    }
+}

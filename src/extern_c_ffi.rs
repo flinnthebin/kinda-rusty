@@ -10,3 +10,11 @@ pub fn absval() {
         println!("|-3| = {}", abs(-3));
     }
 }
+
+#[cfg(test)]
+mod test {
+    fn test() {
+        use super::*;
+        absval();
+    }
+}

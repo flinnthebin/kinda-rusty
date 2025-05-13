@@ -23,3 +23,12 @@ pub fn vec_ops() {
         println!("iter val: {}", x);
     }
 }
+
+#[cfg(test)]
+mod test {
+    #[test]
+    fn test() {
+        use super::vec_ops;
+        vec_ops();
+    }
+}

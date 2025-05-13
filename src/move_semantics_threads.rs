@@ -13,3 +13,12 @@ pub fn move_thread() {
     // `unwrap()` panics if thread panicked, else returns ()
     handle.join().unwrap();
 }
+
+#[cfg(test)]
+mod test {
+    #[test]
+    fn test() {
+        use super::move_thread;
+        move_thread();
+    }
+}

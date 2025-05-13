@@ -1,5 +1,5 @@
 // bounded trait definition
-pub trait Speak
+trait Speak
 where
     // restrict to types that implement debug
     Self: std::fmt::Debug,
@@ -8,8 +8,8 @@ where
 }
 // derive debug to satisfy trait bound & print with {:?}
 #[derive(Debug)]
-pub struct Person {
-    pub name: String,
+struct Person {
+    name: String,
 }
 // implement speak trait for person
 impl Speak for Person {
@@ -19,6 +19,19 @@ impl Speak for Person {
     }
 }
 // dynamic dispatch helper - accept any speak implementor behind a trait object & call speak()
-pub fn speak_dyn(s: &dyn Speak) {
+fn speak_dyn(s: &dyn Speak) {
     s.speak();
+}
+
+#[cfg(test)]
+mod test {
+    #[test]
+    fn test() {
+        use super::*;
+        let p = Person {
+            name: "Chris".into(),
+        };
+        p.speak();
+        speak_dyn(&p);
+    }
 }

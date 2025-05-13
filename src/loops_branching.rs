@@ -26,3 +26,12 @@ pub fn flow_demo() {
         }
     }
 }
+
+#[cfg(test)]
+mod test {
+    #[test]
+    fn test() {
+        use super::flow_demo;
+        flow_demo();
+    }
+}

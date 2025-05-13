@@ -18,3 +18,14 @@ pub fn name() {
     let name: Name = "Chris".to_string();
     println!("My name is {}", name);
 }
+
+#[cfg(test)]
+mod test {
+    #[test]
+    fn test() {
+        use super::*;
+        describe(Status::Success);
+        describe(Status::Failure);
+        name();
+    }
+}
