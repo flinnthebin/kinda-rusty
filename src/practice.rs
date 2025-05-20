@@ -1,17 +1,40 @@
-fn test() {
-    let x1 = 42;
-    let y1 = Box::new(84);
-    {
-        let z = (x1, y1);
-    }
-    let x2 = x1;
-    let y2 = y1;
+#[allow(unused_macros)]
+macro_rules! read_stdin {
+    ($t:ty) => {{
+        use std::io::Read;
+        let mut buffer = String::new();
+        std::io::stdin().read_to_string(&mut buffer).unwrap();
+        buffer
+            .split_whitespace()
+            .map(|s| s.parse::<$t>().unwrap())
+            .collect::<Vec<$t>>()
+    }};
 }
 
-#[cfg(test)]
-mod test {
-    fn testing() {
-        use super::test;
-        test();
-    }
+#[allow(unused_macros)]
+macro_rules! read_lines {
+    () => {{
+        use std::io{self, BufRead};
+        let stdin = io::stdin();
+        let lines = stdin.lock().lines();
+        lines.map(|l| l.unwrap()).collect::<Vec<String>>()
+    }};
+}
+
+#[allow(unused_macros)]
+macro_rules! read_triples {
+    ($t1:ty, $t2:ty, $ty:ty) => {{
+        use std::io::Read;
+        let mut buffer = String::new();
+        std::io::stdin().read_to_string(&mut buffer).unwrap();
+        let mut iter = buffer.split_whitespace();
+        while let (Some(x), Some(y), Some(z)) = (iter.next(), iter.next(), iter.next()) {
+            v.push((
+                x.parse::<$t1>().unwrap(),
+                y.parse::<$t2>().unwrap(),
+                z.parse::<$t3>().unwrap(),
+            ));
+        }
+        v
+    }};
 }
